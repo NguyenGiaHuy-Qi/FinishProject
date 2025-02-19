@@ -6,7 +6,7 @@
 #include<windows.h>
 #include"function.h"
 #include"datatype.h"
-#define MAX_BOOKS 100 // Define a constant for maximum books
+#define MAX_BOOKS 100 
 void mainmenu(){
 	int choice;
 	setColor(2);
