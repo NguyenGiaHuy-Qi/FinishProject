@@ -6,6 +6,7 @@
 #include<windows.h>
 #include"function.h"
 #include"datatype.h"
+#define MAX_BOOKS 100 // Define a constant for maximum books
 void mainmenu(){
 	int choice;
 	setColor(2);
@@ -249,7 +250,7 @@ void display(){
         return;
     }
 
-	Book sach[10];
+	Book sach[MAX_BOOKS];
 	int count = 0;
 
 	while(fscanf(file,"%10[^,],%30[^,],%20[^,],%d,%d,%d\n",sach[count].bookID,sach[count].title,sach[count].author,&sach[count].price,&sach[count].publication.year,&sach[count].amountofbook) == 6){
@@ -267,7 +268,7 @@ void display(){
     printf("\n|%-4s|%-22s|%-16s|%-9s|%-10s|%-6s|", "ID", "Ten Sach", "Tac Gia", "Gia Ban", "NXB","So Luong");
     printf("\n|----|----------------------|----------------|---------|----------|--------|");
     for (int i = 0; i < count; i++) {
-        printf("\n|%-4s|%-22s|%-16s|%-9d|%-10d|%-8d|", sach[i].bookID, sach[i].title, sach[i].author, sach[i].price, sach[i].publication.year,sach[i].amountofbook);
+        printf("\n|%-4s|%-22s|%-16s|%-9d|%-10d|%-8d|",sach[i].bookID,sach[i].title,sach[i].author,sach[i].price,sach[i].publication.year,sach[i].amountofbook);
     }
     printf("\n|----|----------------------|----------------|---------|----------|--------|\n");
 
@@ -297,8 +298,8 @@ void display(){
         printf("\n|%-4s|%-22s|%-16s|%-9s|%-10d|%-6d|", "ID", "Ten Sach", "Tac Gia", "Gia Ban", "NXB","So luong");
         printf("\n|----|----------------------|----------------|---------|----------|------|");
         for (int i = 0; i < count; i++) {
-            printf("\n|%-4s|%-22s|%-16s|%-9d|%-10d|%-6d|", sach[i].bookID, sach[i].title, sach[i].author, sach[i].price, sach[i].publication.year,sach[i].amountofbook);
-        }
+            printf("\n|%-4s|%-22s|%-16s|%-9d|%-10d|%-6d|",sach[i].bookID,sach[i].title,sach[i].author,sach[i].price,sach[i].publication.year,sach[i].amountofbook);
+        }	
         printf("\n|----|----------------------|----------------|---------|----------|--------|\n");
     }
 }
@@ -312,7 +313,7 @@ void changeInfobook(){
 		printf("Khong the mo file");
 		return;
 	}
-	Book book[10];
+	Book book[MAX_BOOKS];
 	int count = 0;
 	while(fscanf(file,"%10[^,],%30[^,],%20[^,],%d,%d,%d\n",book[count].bookID,book[count].title,book[count].author,&book[count].price,&book[count].publication.year,&book[count].amountofbook) == 6){
 		count++;
@@ -410,7 +411,7 @@ void deletebook(){
 		printf("Khong the mo file");
 		return;
 	}
-	Book book[10];
+	Book book[MAX_BOOKS];
 	int count = 0;
 	while(fscanf(file,"%10[^,],%30[^,],%20[^,],%d,%d,%d\n",book[count].bookID,book[count].title,book[count].author,&book[count].price,&book[count].publication.year,&book[count].amountofbook) == 6){
 		count++;
@@ -460,7 +461,7 @@ void searchbook() {
         return;
     }
 
-    Book book[10];
+    Book book[MAX_BOOKS];
     int count = 0;
 
     while (fscanf(file, "%10[^,],%30[^,],%20[^,],%d,%d,%d\n", book[count].bookID, book[count].title, book[count].author, &book[count].price, &book[count].publication.year,&book[count].amountofbook) == 6) {
@@ -828,7 +829,7 @@ void displaybookwithoutsort(){
         return;
     }
 
-	Book sach[10];
+	Book sach[MAX_BOOKS];
 	int count = 0;
 
 	while(fscanf(file,"%10[^,],%30[^,],%20[^,],%d,%d,%d\n",sach[count].bookID,sach[count].title,sach[count].author,&sach[count].price,&sach[count].publication.year,&sach[count].amountofbook) == 6){
@@ -869,7 +870,7 @@ void borrow(){
         return;
     }
 
-    Member members[100];
+    Member members[MAX_BOOKS];
     int count = 0;
 
     while (fscanf(file, "%9[^,],%19[^,],%9[^,\n],%d\n", 
@@ -888,7 +889,7 @@ void borrow(){
         return;
     }
 
-    Book books[100];
+    Book books[MAX_BOOKS];
     int bookCount = 0;
 
     while (fscanf(file, "%10[^,],%30[^,],%20[^,],%d,%d,%d\n", 
@@ -980,7 +981,7 @@ void memberstatus() {
         return;
     }
 
-    Member members[100];
+    Member members[MAX_BOOKS];
     int count = 0;
     int found = 0;
 
